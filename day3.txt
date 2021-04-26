@@ -1,0 +1,317 @@
+using System;
+class Class1 
+{
+void sum()
+{
+     Console.WriteLine("I am Empty");
+}
+void sum(int a, int b)
+{
+     Console.WriteLine("sum of a+b=" +(a+b));
+}
+void sum(float a, float b, float c)
+{
+    Console.WriteLine("sum of a+b+c=" +(a+b+c));
+}
+void sum(string a, string b)
+{
+    Console.WriteLine(a+b);
+}
+  static void Main() 
+  {
+     Class1 class1= new Class1();
+      Console.WriteLine("Enter a and b:");
+      int a = Convert.ToInt32(Console.ReadLine());
+      int b = Convert.ToInt32(Console.ReadLine());
+      class1.sum(float.Parse(a.ToString()), float.Parse(b.ToString()), float.Parse(c.ToString()));
+     class1.sum(a.ToString(),b.ToString());
+     
+  }
+}
+
+using System;
+class Class2
+{
+    int a;
+    int b;
+    Class2(int _a, int _b)
+    {
+        a = _a;
+        b = _b;
+    }
+    public static Class2 operater*(Class2_obj1,Class2_obj2)
+    {
+        Class2_obj3 = new Class2(0,0);
+        _obj3.a = _obj1.a * _obj2.a;
+        _obj3.b = _obj1.b * _obj2.b;
+        return _obj3;
+    }
+    public static void Showvalues(Class2_obj)
+    {
+        Console.WriteLine("a="+_obj.a);
+        Console.WriteLine("b="+_obj.b);
+    }
+  public static void Main() 
+  {
+    Class2 Obj1 = new Class2(1,2);
+    Class2 Obj2 = new Class2(1,2);
+    Class2 Obj3 = new Class2(0,0);
+    Obj3 = Obj1*Obj2;
+    Class2.Showvalues(Obj3);
+    Console.ReadLine();
+  }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+ 
+namespace Day_3
+{
+    class Shape
+    {
+        //private members----Abstraction is implemeted here---Data hiding
+        double _width;
+        double _length;
+        //Default Constructor
+        public Shape()
+        {
+            //Default values
+            Width = Length = 0.0;
+        }
+        //Parametrised constructor
+        public Shape(double w,double l)
+        {
+            Width = w;
+            Length = l;
+        }
+        //For Square
+        public Shape(double y)
+        {
+            Width = Length = y;
+        }
+        //Properties --properties
+        public double Width
+        {
+            get { return _width; }
+            set
+            {
+                _width = value < 0 ? -value:value;
+            }
+        }
+        public double Length
+        {
+            get { return _length; }
+            set
+            {
+                _length = value < 0 ? -value : value;
+            }
+        }
+        public void DisplayValues()
+        {
+            Console.WriteLine("Width and Length are "+Width+" and "+Length);
+        }
+    }
+    class Rectange:Shape
+    {
+        string Style;
+        public Rectange()
+        {
+            Style = "";
+        }
+        public Rectange(String s,double w,double l):base(w,l)
+        {
+            Style = s;
+        }
+        public Rectange(double y):base(y)
+        {
+            Style = "square";
+        }
+        public double Area()
+        {
+            return Width * Length;
+        }
+        public void DisplayStyle()
+        {
+            Console.WriteLine("Rectangle is "+Style);
+        }
+    }
+    class ColorRectange:Rectange
+    {
+        string rcolor;
+        public ColorRectange(string c,string s,double w,double l):base(s,w,l)// This base keyword will
+            //Rectangle class constructor
+        {
+            rcolor = c;
+        }
+        public void DisplayColor()
+        {
+            Console.WriteLine("Color is "+rcolor);
+        }
+    }
+    class Client
+    {
+        static void Main()
+        {
+            ColorRectange r1 = new ColorRectange("blue","Rectangle",2.0,3.0);
+            ColorRectange r2 = new ColorRectange("black", "Square", 2.0, 2.0);
+            Console.WriteLine("Details of r1: ");
+            r1.DisplayStyle();
+            r1.DisplayValues();
+            r1.DisplayColor();
+            Console.WriteLine("Area is : "+r1.Area());
+ 
+            Console.WriteLine("------------------------------------------------------------------");
+ 
+            Console.WriteLine("Details of r2: ");
+            r1.DisplayStyle();
+            r1.DisplayValues();
+            r1.DisplayColor();
+            Console.WriteLine("Area is : " + r2.Area());
+
+            Console.ReadLine();
+        }
+    }
+}
+
+using System;
+interface I1
+{
+   public void myMethod();
+}
+interface I2
+{
+    void myMethod();
+}
+class MultipleInhertance:I1,I2
+{
+    void I1.myMethod():
+    {
+      Console.WriteLine("Hello I am interface-1 Method");  
+    }
+     public void I2.myMethod()
+    {
+      Console.WriteLine("Hello I am interface-2 Method");   
+    }
+}
+public class client
+{
+  public static void Main() 
+  {
+    MultipleInhertance Obj1 = new MultipleInhertance();
+    I1 interface1 = Obj1;
+    sample.myMethod();
+    //
+    I2 interface2 = Obj2;
+    sample.myMethod();
+  }
+}
+}
+**********************************************************************
+using System;
+class substring
+{
+  
+    public static void Main()
+    {
+        String str = "It is a bad color";
+        Console.WriteLine("String    : " + str);
+        Console.WriteLine("Sub String1: " + str.Substring(3, 5));
+  
+    }
+
+using System;
+  
+class substring
+{
+  
+    public static void Main()
+    {
+  
+        String str = "it is a bad color";
+        String substr = "is a";
+  
+        Console.WriteLine(str.Contains(substr));
+  
+    }
+}
+}
+
+using System;
+{
+    class Program
+{
+Console.WriteLine("Enter a sentence");
+            String s = Console.ReadLine();
+            char[] arr;
+            arr = s.ToCharArray();
+            for(int i=0; i<arr.Length;i++)
+            {
+                if (Char.IsLower(arr[i]))
+                {
+                    Console.Write(Char.ToUpper(arr[i]));
+                }
+                else
+                {
+                    Console.Write(Char.ToLower(arr[i]));
+                }                               
+            }
+            Console.ReadLine();
+        }
+
+    }
+}
+
+
+using System;
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter a String : ");
+            string inputString = Console.ReadLine();
+            
+            var uniqueCharArray = inputString.ToCharArray().Distinct().ToArray();
+            var resultString = new string(uniqueCharArray);
+            Console.WriteLine("After Removing Duplicates : " + resultString);
+        }
+    }
+}
+
+
+using System;
+class logic
+{
+static String removeDuplicate(char []str, int n)
+{   
+	int index = 0;
+   	for (int i = 0; i < n; i++)
+    {
+        int j;
+        for (j = 0; j < i; j++) 
+      {
+        if (str[i] == str[j])
+       {
+                break;
+         }
+        }
+        if (j == i) 
+        {
+        str[index++] = str[i];
+        }
+    }
+    char [] ans = new char[index];
+    Array.Copy(str, ans, index);
+    return String.Join("", ans);
+}
+  
+public static void Main(String[] args)
+{
+    char []str = "gunashankar gsr".ToCharArray();
+    int n = str.Length;
+    Console.WriteLine(removeDuplicate(str, n));
+}
+}
